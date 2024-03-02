@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai tap 2</title>
+
+    <style>
+        table,
+        td,
+        tr,
+        th {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 70%;
+        }
+
+        .content {
+            padding-top: 40px;
+        }
+
+        tbody,
+        h1,
+        .top,
+        .content {
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+        }
+
+        .donetask {
+            text-decoration: line-through;
+            background-color: #98FB98;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Task Manager</h1>
+    <div class="container">
+        <div class="top">
+            <form class="js-form-task">
+                <label>Task:</label>
+                <input type="text" class="js-input-task-name" name="task" placeholder="Enter a new task" />
+                <label>Creator:</label>
+                <input type="text" class="js-input-task-creator" name="creator" placeholder="Enter a creator" />
+
+                <button type="submit" class="js-btn-add-task">Add task</button>
+            </form>
+        </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Creator</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="js-tbody-task-app">
+                    <!-- <tr>
+                        <td>Task 1</td>
+                        <td>Son</td>
+                        <td>
+                            <button onclick="doneTaskById()">Done</button>
+                        </td>
+                        <td>
+                            <button onclick="deleteTask()"> Delete</button>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
