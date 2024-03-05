@@ -1,0 +1,4 @@
+.task--done {
+    text-decoration: line-through;
+    background-color: #98FB98;
+}

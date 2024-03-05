@@ -6,6 +6,7 @@ function addTask(taskName, createBy) {
         taskName: taskName,
         createBy: createBy,
         id: new Date().getTime(),
+        isDone: false,
     };
     allTask.push(task);
     localStorage.setItem(KEY_TASK_LIST, JSON.stringify(allTask));
@@ -18,7 +19,7 @@ function renderTask() {
 
     allTask.forEach((task) => {
         bodyTableHtml += `
-        <tr>
+        <tr class="${task.isDone ? "task--done" : ""}">
                         <td>Task ${task.taskName}</td>
                         <td>${task.createBy}</td>
                         <td>
@@ -40,17 +41,15 @@ function deleteTaskById(taskId) {
 }
 
 function doneTaskById(taskId) {
-    const table = document.getElementsByTagName('table')
-    const tbody = table[0].getElementsByTagName('tbody')
-    const rows = tbody[0].getElementsByTagName('tr');
-    for (i = 0; i < rows.length; i++) {
-        rows[i].onclick = function () {
-            this.classList.toggle("donetask");
-        }
+    const indexTaskMakeDone = allTask.findIndex((task) => task.id === taskId);
+    if (indexTaskMakeDone !== -1) {
+        allTask[indexTaskMakeDone] = {
+            ...allTask[indexTaskMakeDone],
+            isDone: true,
+        };
+        renderTask();
+        localStorage.setItem(KEY_TASK_LIST, JSON.stringify(allTask));
     }
-
-    localStorage.setItem(KEY_TASK_LIST, JSON.stringify(allTask));
-
 }
 
 function handleAddTask(event) {
